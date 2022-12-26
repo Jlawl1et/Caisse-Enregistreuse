@@ -1,0 +1,1 @@
+<h1>Bienvenue sur le site du BDE de l'IUT de l'Université Paris 13</h1>
