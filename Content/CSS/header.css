@@ -5,7 +5,7 @@ body{
 /* ------------- DEBUT PARTIE HEADER ------------- */
 
 header{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgb(230,230,230);
     padding: 0;
     position: sticky;
     top: 0;
