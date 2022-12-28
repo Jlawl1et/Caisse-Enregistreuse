@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Content/CSS/header.css">
+    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
     <title>BDE USPN</title>
 </head>
 <body>
-<!-- Début header -->
+
 <header>
     <div class="container">
         <!-- Logo -->
@@ -18,11 +19,11 @@
             <ul class="navigation">
                 <!-- Côté gauche de la barre de navigation -->
                 <ul class="menuL">
-                    <li>
-                        <a href="">Accueil</a>
+                    <li style="padding-bottom: 2.6%">
+                        <a href=""><strong>Accueil</strong></a>
                     </li>
                     <li>
-                        <a href="">Commande</a>
+                        <a href=""><strong>Commande</strong></a>
                         <!-- Sous menu de commande -->
                         <ul>
                             <li><a href="">Nouvelle Commande</a></li>
@@ -30,7 +31,7 @@
                         </ul>                        
                     </li>
                     <li>
-                        <a href="">Inventaire</a>
+                        <a href=""><strong>Inventaire</strong></a>
                         <!-- Sous menu de inventaire -->
                         <ul>
                             <li><a href="">Stock/Réaprovisionnement</a></li>
@@ -38,15 +39,15 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="">Comptabilité</a>
+                        <a href=""><strong>Comptabilité</strong></a>
                         <!-- Sous menu de Comptabilité -->
                         <ul>
                             <li><a href="">Historique des ventes</a></li>
                             <li><a href="">Bilan</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="">Gestion des comptes</a>
+                    <li style="padding-bottom: 2.6%">
+                        <a href=""><strong>Gestion des comptes</strong></a>
                     </li>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
@@ -59,4 +60,3 @@
         </nav>
     </div>
 </header>
-<!-- Fin header -->
