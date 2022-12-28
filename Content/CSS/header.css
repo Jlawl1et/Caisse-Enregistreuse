@@ -5,13 +5,12 @@ body{
 /* ------------- DEBUT PARTIE HEADER ------------- */
 
 header{
-    background-color: rgb(226, 226, 226);
-    padding: 0.5%;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0;
 }
 
 .container{
-    overflow:auto;
-    z-index: 1;
+    overflow: auto;
 }
 
 /* Le logo */
@@ -21,6 +20,7 @@ header{
     height: 5%;
     width: 5%;
     margin-right: 1%;
+    padding: 0.5%;
 }
 
 /* La barre de navigation */
@@ -29,42 +29,37 @@ header{
     display: inline;
 }   
 
-.menuL{
-    float: left;
-    padding-left: 0%;
-    z-index:1;
-}
-
-.menuR{
-    float: right;
-    padding-right: 1%;
-}
-
-nav ul ul li{
+.navigation ul li{
     display: inline-block;
     padding: 15px;
     font-size: 20px;
 }
 
-nav a{
+.navigation a{
     text-decoration: none;
 }
 
-/* Les icônes de la barre de navigation */
+/* Partie gauche de la barre de navigation */
 
-nav img{
-    height: 100%;
-    width: 100%;
+.menuL{
+    padding-left: 0;
 }
 
+.menuL > li > a{
+    color: rgb(5,164,227);
+}
 
-/* ------------- FIN PARTIE HEADER ------------- */
+.menuL li ul li a{
+    color: white
+}
 
-/* Test sous menu */
+.menuL > li{
+    float: left;
+    transition: 0.4s;
+}
 
-.menuL li ul li{
-    margin: 0;
-    padding: 0;
+.menuL > li:hover{
+    background-color: rgba(87, 87, 87, 0.2);
 }
 
 .menuL li ul{
@@ -74,25 +69,30 @@ nav img{
 .menuL li:hover ul{
     display: flex;
     flex-direction: column;
-    border: 1px solid;
-    padding: 5px;
-    z-index: 99;
-    position: relative; 
-
+    padding: 5px 5px 1px 5px;
+    border-left: 2.5px solid rgb(5,164,227);
 }
 
-.menuL li{
-    float: left;
-    text-align: center; 
+.menuL li ul li{
+    margin: 0;
+    padding: 0;
+    transition: 0.2s;
 }
 
-.menuL > li:hover   {
-    background-color: rgb(87, 79, 79);
+.menuL > li > ul > li:hover{
+    font-size: 21.5px;
 }
 
-.menuL a{
-    color: white;
+/* Partie droite de la barre de navigation */
+
+.menuR{
+    float: right;
+    padding-right: 2%;
 }
 
+.menuR img{
+    height: 100%;
+    width: 100%;
+}
 
-
+/* ------------- FIN PARTIE HEADER ------------- */
