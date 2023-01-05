@@ -1,0 +1,195 @@
+:root{
+    --bleu: #6eb6f3;
+    --vert: #85ea81;
+}
+
+
+body{
+    margin: 0;
+}
+
+*::selection{
+    background: var(--vert);
+    color:#fff;
+}
+
+/* ------------- DEBUT PARTIE HEADER ------------- */
+
+header{
+    background-color: var(--bleu);
+    padding: 0;
+    position: sticky;
+    top: 0;
+}
+
+.container{      
+    overflow:auto;
+}
+
+/* Le logo */
+
+.logo img{
+    float:left;
+    height: 5%;
+    width: 5%;
+    margin-right: 1%;
+    padding: 0.5%;
+}
+
+/* La barre de navigation */
+
+.navigation ul{
+    display: inline;
+}   
+
+.navigation ul li{
+    display: inline-block;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.navigation a{
+    text-decoration: none;
+}
+
+/* Partie gauche de la barre de navigation */
+
+.menuL{
+    padding-left: 0;
+}
+
+.menuL > li > a{
+    color: rgb(255, 255, 255);
+}
+
+.menuL li ul li a{
+    color: white
+}
+
+.menuL > li{
+    float: left;
+    transition: 0.4s;
+}
+
+.menuL > li:hover{
+    background-color: rgba(87, 87, 87, 0.2);
+}
+
+.menuL li ul{
+    display: none;
+    flex-direction: column;
+    padding: 5px 5px 1px 5px;
+    border-left: 2.5px solid #041C63;
+}
+
+.menuL li:hover ul{
+    display: flex;
+}
+
+.menuL li ul li{
+    margin: 0;
+    padding: 0;
+    transition: 0.1s;
+}
+
+.menuL > li > ul > li:hover{
+    font-size: 19.5px;
+}
+
+/* Partie droite de la barre de navigation */
+
+.menuR{
+    float: right;
+    padding-right: 2%;
+}
+
+.menuR img{
+    height: 100%;
+    width: 100%;
+}
+
+/* ------------- FIN PARTIE HEADER ------------- */
+
+/* ------------- DEBUT PARTIE HOME ------------- */
+
+.accueil{
+    min-height: 100vh;
+    display: flex;
+    align-items:center;
+    background: url(../Images/accueil.jpg) no-repeat;
+    background-size: cover;
+    background-position : center;
+    background-attachment: fixed;
+}
+
+.accueil .content span{
+    font-size: 5rem;
+    color:white;
+    padding-left:50%;
+    border-radius: 1rem;
+}
+
+/* ------------- FIN PARTIE HOME ------------- */
+
+/* ------------- DEBUT PARTIE FOOTER ------------- */
+
+img{
+    width: 20px;
+    padding-right: 10px;
+}
+footer{
+    flex-shrink: 0;
+    border-top: 1px #000;
+    width : 100%;
+    background: var(--bleu);
+    color: #333;
+}
+
+.contenu-footer{
+    width:1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 20px;
+}
+
+.footer-horaire h3, .footer-reseaux h3{
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.liste-horaire, .liste-media{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.footer-horaire{
+    margin-right: 100px;
+}
+
+.liste-media a{
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* Taille écran */
+
+@media screen and (max-width: 1300px){
+    .contenu-footer{
+        width: 700px;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 800px ){
+    .contenu-footer{
+        width: 320px;
+    }
+}
+/* /!\ les éléments ne sont pas alignés /!\ */
+
+/* ------------- FIN PARTIE FOOTER ------------- */
