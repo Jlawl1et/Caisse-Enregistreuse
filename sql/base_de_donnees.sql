@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS "historique_commande_guest" CASCADE;
 DROP TABLE IF EXISTS "historique_commande_util" CASCADE;
 DROP TABLE IF EXISTS "stock" CASCADE;
 DROP TABLE IF EXISTS "article" CASCADE;
+DROP TABLE IF EXISTS "test" CASCADE;
 
 
 CREATE TABLE "utilisateur" (
@@ -44,6 +45,11 @@ CREATE TABLE "article" (
   "categorie" varchar,
   "informations" varchar,
   PRIMARY KEY (id_article)
+);
+
+CREATE TABLE "test" (
+  "id" int,
+  "tests" varchar
 );
 
 ALTER TABLE "historique_commande_util" ADD FOREIGN KEY ("id_utilisateur") REFERENCES "utilisateur" ("id_utilisateur");
