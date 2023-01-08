@@ -1,16 +1,29 @@
-<!--
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Content/CSS/style.css">
+    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
+    <title>BDE USPN</title>
+</head>
 
-<main>
-    <a href="view_commande.php" style="width: 10rem">
-    <div class="card" style="width: 10rem; background-color: grey">
-        <img src="../Content/img/Logo_BDE_noir.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text align-items-center-center">150€</p>
+<body>
 
-        </div>
+<!-- Header section start -->
+
+<header>
+    <?php require_once 'view_header_membre.php';?>
+</header>
+
+<!-- Header section ends -->
+
+<!-- Home section start -->
+
+<section class="accueil" id="#accueil">
+    <div class="content">
+        <span>Bienvenue</span>
+        <h3></h3>
     </div>
-    </a>
-</main>
+</section>
 
--->
+<!--home section ends-->
