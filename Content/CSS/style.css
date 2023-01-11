@@ -1,12 +1,14 @@
 :root{
     --bleu: #6eb6f3;
     --vert: #85ea81;
+    --vert_clair: #c1f199;
     --bleu_fonce: #041C63;
 }
 
 
 body{
     margin: 0;
+    background: var(--vert_clair);
 }
 
 *::selection{
@@ -94,7 +96,7 @@ header{
 }
 
 .menuL > li > ul > li:hover{
-    font-size: 20.5px;
+    font-size: 20px;
 }
 
 /* Partie droite de la barre de navigation */
@@ -107,19 +109,6 @@ header{
 .menuR img{
     height: 100%;
     width: 100%;
-}
-
-@media (max-width: 800px){
-    .navigation ul{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .navigation{
-        display: flex;  
-        justify-content: space-between;
-    }
-    
 }
 
 /* ------------- FIN PARTIE HEADER ------------- */
@@ -174,6 +163,7 @@ table,th,td{
 
 /* ------------- FIN PARTIE HISTORIQUE ------------- */
 
+
 /* ------------- DEBUT PARTIE FOOTER ------------- */
 
 img{
@@ -223,9 +213,27 @@ footer{
 
 @media screen and (max-width: 1300px){
     .contenu-footer{
+        display: flex;
         width: 700px;
         flex-wrap: wrap;
+        align-items: center;
+
     }
+
+    .footer-horaire{
+        margin-right: 8.6%;
+
+    }
+
+    .accueil .content span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 25%;
+        font-size: 4rem;
+    }
+
+
 }
 
 @media screen and (max-width: 800px ){
@@ -236,3 +244,48 @@ footer{
 /* /!\ les éléments ne sont pas alignés /!\ */
 
 /* ------------- FIN PARTIE FOOTER ------------- */
+
+
+/* ------------- DEBUT PARTIE COMMANDE ------------- */
+
+.step-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: 'Arial Narrow Bold';
+}
+
+.step-container .step{
+    background:var(--vert);
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem black;
+    text-align: center;
+    flex:1 1 30rem;
+}
+
+.step-container .step img{
+    width: 100%;
+    height: 100%;
+}
+
+.step-container .step h4{
+    font-size: 4rem;
+    color:var(--bleu);
+    font-family: 'Arial Narrow Bold';
+}
+
+.step-container .step h3{
+    font-size: 2rem;
+    color: black;
+    padding:1rem 0;
+    text-align: center;
+}
+
+
+.step-container .step h3 h3 p{
+    font-size: 1rem;
+    color:#666;
+}

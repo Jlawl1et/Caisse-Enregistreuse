@@ -1,216 +1,27 @@
-<?php require_once "view_header_client.php" ?>
+<?php require_once 'view_header_client.php'; ?>
 
 <section class="accueil" id="accueil">
     <div class="historique">
         <table>
-            <thead>
+            <tr>
                 <th>Identifiant</th>
                 <th>Article</th>
-                <th>Date de l'achat</th>
-                <th>Heure de l'achat</th>
-                <th>Moyen paiement</th>
-                <th>Montant</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                <tr>
-                    <td>12101207</td>
-                    <td>Chips Barbecue</td>
-                    <td>08/01/2023</td>
-                    <td>23:59:59</td>
-                    <td>Espèces</td>
-                    <td>0.70€</td>
-                </tr>
-                
+                <th>Date d'achat</th>
+                <th>Heure d'achat</th>
+                <th>Moyen de paiement</th>
+            </tr>
 
-                <!-- Trouves comment rajouter commme dans les tp PHP un <tr><td>...</td></tr> -->
-
-            </tbody>
+            <?php foreach ($liste as $valeur) : ?>
+                <tr>
+                    <td> <?= e($valeur['id_utilisateur']) ?> </td>
+                    <td> <?= e($valeur['nom_article']) ?> </td>
+                    <td> <?= e($valeur['date_achat']) ?> </td>
+                    <td> <?= e($valeur['heure_achat']) ?> </td>
+                    <td> <?= e($valeur['moyen_payement']) ?> </td>
+                </tr>
+            <?php endforeach ?>
         </table>
     </div>
 </section>
 
-<?php require_once "view_end.php" ?>
+<?php require_once 'view_end.php'; ?>

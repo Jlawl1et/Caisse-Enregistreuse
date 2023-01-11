@@ -3,12 +3,19 @@ class Model {
 	private $bd;
 	private static $instance = null;
 
+	/**
+	 * Methode terminée, ne pas modifier
+	 */
 	private function __construct(){
     	$this->bd = new PDO("pgsql:host=51.77.214.196;dbname=ubuntu", "ubuntu", "Andromeda");
     	$this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     	$this->bd->query("SET nameS 'utf8'");
 	}
 
+	/**
+	 * Methode terminée, a ne pas modifier
+	 * @return Model|null
+	 */
 	public static function getModel(){
     	if (self::$instance == null){
         	self::$instance = new self();
@@ -16,7 +23,8 @@ class Model {
     	return self::$instance;
 	}
 
-	/*
+	/**
+	 * Methode terminée, en phase de test, à ne pas modifier
  	* cette fonction permet de verifier si le compte est dans la base de données
  	* paramêtres : identifiant et mot de passe
  	* return bool
@@ -38,9 +46,11 @@ class Model {
 	}
 
 	public function consulterInventaire(){
-    	return null;
+		$requette = $this->bd->prepare("SELECT * from article");
+		$requette->execute();
+		return $requette->fetchall();;
 	}
-	/*
+	/**
  	* cette fonction permet de calculer le montant des achats d’articles et retourne son prix total.
  	* return int
  	*/
@@ -76,35 +86,58 @@ class Model {
 
 	}
 
-	public function consulterHistorique($client){
-		$requette = $this->bd->prepare("SELECT * from historique_commande join client on  id_utilisateur = :id_utilisateur  ");
-		$reqette->bindValue(':id_utilisateur',$client);
+	public function consulterHistorique($id_utilisateur){
+		$requette = $this->bd->prepare("SELECT * from historique_commande join utilisateur on  utilisateur.id_utilisateur = :id_utilisateur  ");
+		$requette->bindValue(':id_utilisateur',$id_utilisateur);
 		$requette->execute();
 		return $requette->fetchall();
+
 	}
 
 	public function consulerPariteAchat(){
 		$requette = $this->bd->prepare("SELECT * from historique_commande order by heure_achat,date_achat DESC LIMIT 20 ");
   	$requette->execute();
   	return $requette->fetchall();
-    	;
+
 	}
 
+	/**
+	 * Fonction a refaire
+	 * TODO
+	 * @param $article
+	 * @return void
+	 */
 	public function estEnStock($article){
 		$reqette = $this->bd->prepare("SELECT nb_article from article where id_article = :id_article  ");
 		$reqette->bindValue(':id_article',$article);
   	$reqette->execute();
   	$tab = $reqette->fetch(PDO::FETCH_NUM);
 		if ($tab[0] > 0){
-			echo '<p>'. " l'article numero " . ':id_article' . 'est encore en stock ' . "</p>";
+			echo '<p>'. " l'article numero " . $article . ' est encore en stock ' . "</p>";
 		}
+		else{
+			echo '<p>'. " l'article numero " . $article . " n'est plus en stock " . "</p>";
+		}
+}
 
-    	;
-	}
 
-	public function ajouterArticle($article){
-    	return null;
-	}
+public function ajouterArticle($donnee){
+       $req = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
+       $marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
+        foreach ($marks as $value) {
+            $req->bindValue(':' . $value, $donnee[$value]);
+        }
+        $req->execute();
+        return (bool) $req->rowCount();
+    }
+
+		public function ajouterArticle2($id_article,$nom_article,$prix,$informations){
+		       $requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,informations) VALUES (:id_article,:nom_article,:prix,:informations)");
+		       $requette->execute(array(
+		           'id_article' => $id_article,
+		           'nom_article' => $nom_article,
+		           'prix' => $prix,
+		           'informations' => $informations));}
 
 	public function reduction(){
     	return null;
@@ -123,6 +156,15 @@ class Model {
         	'role' => $role));
 	}
 
+	/**
+	 * Methode terminée, à ne pas modifier, test reussi !
+	 * @param $identifiant
+	 * @param $nom
+	 * @param $prenom
+	 * @param $mail
+	 * @param $motDePasse
+	 * @return void
+	 */
 	public function ajoutCompteAdministrateur($identifiant, $nom, $prenom, $mail, $motDePasse){
     	$role = 'administrateur';
     	$motDePasseHash = crypt($motDePasse, 'md5');
@@ -136,8 +178,11 @@ class Model {
         	'role' => $role));
 	}
 
-	public function infoCompte($identifiant){
-    	return null;
+	public function infoCompte($id_utilisateur){
+    $requette = $this->bd->prepare("SELECT * from client where id_utilisateur = :id_utilisateur");
+		$reqette->bindValue(':id_utilisateur',$id_utilisateur);
+    $requette->execute();
+    return $requette->fetchall();
 	}
 
 	public function supprimerCompte($identifiant){
@@ -162,6 +207,12 @@ class Model {
 
 	public function fixerStockBas($idArticle, $minimum){
     	return null;
+	}
+
+	public function getHistorique(){
+		$req = $this->bd->prepare('SELECT * FROM historique_commande ORDER BY date_achat DESC');
+		$req->execute();
+		return $req->fetchall();
 	}
 
 }

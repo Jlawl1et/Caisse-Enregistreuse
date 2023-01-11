@@ -20,10 +20,10 @@
                 <!-- Côté gauche de la barre de navigation -->
                 <ul class="menuL">
                     <li style="padding-bottom: 2.6%">
-                        <a href=""><strong>Accueil</strong></a>
+                        <a href="">Accueil</a>
                     </li>
                     <li>
-                        <a href=""><strong>Commande</strong></a>
+                        <a href="">Commande</a>
                         <!-- Sous menu de commande -->
                         <ul>
                             <li><a href="">Nouvelle Commande</a></li>
@@ -31,7 +31,7 @@
                         </ul>                        
                     </li>
                     <li>
-                        <a href=""><strong>Inventaire</strong></a>
+                        <a href="">Inventaire</a>
                         <!-- Sous menu de inventaire -->
                         <ul>
                             <li><a href="">Stock/Réaprovisionnement</a></li>
@@ -39,7 +39,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href=""><strong>Comptabilité</strong></a>
+                        <a href="">Comptabilité</a>
                         <!-- Sous menu de Comptabilité -->
                         <ul>
                             <li><a href="">Historique des ventes</a></li>
@@ -47,7 +47,7 @@
                         </ul>
                     </li>
                     <li style="padding-bottom: 2.6%">
-                        <a href=""><strong>Gestion des comptes</strong></a>
+                        <a href="">Gestion des comptes</a>
                     </li>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
