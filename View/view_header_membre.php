@@ -12,7 +12,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href=""><img src="../Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
+            <a href="?controller=accueil&action_membre"><img src="../Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
         </div>
         <!-- Barre de navigation -->
         <nav>
@@ -20,34 +20,34 @@
                 <!-- Côté gauche de la barre de navigation -->
                 <ul class="menuL">
                     <li style="padding-bottom: 2.6%">
-                        <a href="">Accueil</a>
+                        <a href="?controller=accueil">Accueil</a>
                     </li>
                     <li>
-                        <a href="">Commande</a>
+                        <a>Commande</a>
                         <!-- Sous menu de commande -->
                         <ul>
-                            <li><a href="">Nouvelle Commande</a></li>
-                            <li><a href="">Retour Commande</a></li>
+                            <li><a href="?controller=commande&action=">Nouvelle Commande</a></li>
+                            <li><a href="?controller=commande&action=">Retour Commande</a></li>
                         </ul>                        
                     </li>
                     <li>
-                        <a href="">Inventaire</a>
+                        <a>Inventaire</a>
                         <!-- Sous menu de inventaire -->
                         <ul>
-                            <li><a href="">Stock/Réaprovisionnement</a></li>
-                            <li><a href="">Ajout d'article</a></li>
+                            <li><a href="?controller=article&action=">Stock/Réaprovisionnement</a></li>
+                            <li><a href="?controller=article&action=">Ajout d'article</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="">Comptabilité</a>
+                        <a>Comptabilité</a>
                         <!-- Sous menu de Comptabilité -->
                         <ul>
-                            <li><a href="">Historique des ventes</a></li>
-                            <li><a href="">Bilan</a></li>
+                            <li><a href="?controller=historique&action=ventes">Historique des ventes</a></li>
+                            <li><a href="?controller=historique&action=bilan">Bilan</a></li>
                         </ul>
                     </li>
                     <li style="padding-bottom: 2.6%">
-                        <a href="">Gestion des comptes</a>
+                        <a href="?">Gestion des comptes</a>
                     </li>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->

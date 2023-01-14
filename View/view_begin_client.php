@@ -1,4 +1,3 @@
-
 <?php require_once 'view_header_client.php';?>
 
 <!-- Home section start -->
@@ -12,4 +11,4 @@
 
 <!--home section ends-->
 
-<?php require_once 'view_end.php'; ?>
+<?php require_once 'view_end.php';?>
