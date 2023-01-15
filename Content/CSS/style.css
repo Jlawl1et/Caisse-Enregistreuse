@@ -323,3 +323,76 @@ footer{
     font-size: 1rem;
     color:#666;
 }
+
+/*-------------------- DEBUT PARTIE LOGIN -------------------- */
+
+
+#container_login{
+    background-color: var(--bleu);
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    position: relative;
+}
+
+#logo_login{
+    display: flex;
+    align-items: center;
+}
+
+#accueil_form{
+    justify-content: center;
+}
+
+
+.login_title{
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.identification{
+    background-color: var(--vert_clair);
+    opacity: 0.95;
+    padding: 20px;
+    border-radius: 30px;
+    width: 40%;
+}
+
+.formulaire{
+    padding: 50px;
+    text-align: center;
+}
+
+.formulaire label{
+    font-size: 25px;
+    margin: 50px;
+}
+
+.formulaire span{
+    font-size: 15px;
+}
+
+.input_login{
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 0 10px 0 20px;
+    font-size: 15px;
+}
+
+.submit_login{
+    padding: 8px;
+    margin: 10px;
+    background-color: var(--bleu);
+    border: 0;
+    border-radius: 20px;
+    width: 200px;
+}
+
+.submit_login:hover{
+    background-color: #3d75a8;
+}
+
+/*-------------------- FIN PARTIE LOGIN -------------------- */
