@@ -16,8 +16,8 @@
         <div class="footer-reseaux">
             <h3>Nos réseaux :</h3>
             <ul class="liste-media">
-                <li><a href="https://instagram.com/bdeup13?igshid=YmMyMTA2M2Y="><img src="../Content/Images/Insta.png" alt="icons réseaux sociaux"/>Instagram</a></li>
-                <li><a href="https://www.tiktok.com/@bdeup13?is_from_webapp=1&sender_device=pc"><img src="../Content/Images/tiktok.png" alt="icons réseaux sociaux"/>Tiktok</a></li>
+                <li><a href="https://instagram.com/bdeup13?igshid=YmMyMTA2M2Y="><img src="Content/Images/Insta.png" alt="icons réseaux sociaux"/>Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@bdeup13?is_from_webapp=1&sender_device=pc"><img src="Content/Images/tiktok.png" alt="icons réseaux sociaux"/>Tiktok</a></li>
             </ul>
         </div>
     </div>

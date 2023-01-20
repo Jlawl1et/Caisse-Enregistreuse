@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../Content/CSS/style.css">
-    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
+    <link rel="stylesheet" href="Content/CSS/style.css">
+    <link rel="shortcut icon" href="Content/Images/Logo_bde">
     <title>BDE USPN</title>
 </head>
 <body>
@@ -11,7 +11,7 @@
 <div class="container" id="container_login">
     <div class="logo" id="logo_login">
         <a href="?controller=accueil&action_membre">
-            <img src="../Content/Images/Logo_BDE_noir.png" alt="Logo BDE" style="height: 100px;width: 100px">
+            <img src="Content/Images/Logo_BDE_noir.png" alt="Logo BDE" style="height: 100px;width: 100px">
         </a>
     </div>
 </div>

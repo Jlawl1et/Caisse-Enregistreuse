@@ -8,4 +8,3 @@
 </section>
 
 <?php require "view_end.php"; ?>
-

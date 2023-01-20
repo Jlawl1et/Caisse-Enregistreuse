@@ -2,7 +2,7 @@
 
     <section class="accueil" id="accueil">
         <div class="historique">
-            <table>
+            <table class="tab_historique">
                 <tr>
                     <th>Identifiant</th>
                     <th>Article</th>

@@ -1,9 +1,10 @@
+
 <!Doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../Content/CSS/style.css">
-    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
+    <link rel="stylesheet" href="Content/CSS/style.css">
+    <link rel="shortcut icon" href="Content/Images/Logo_bde">
     <title>BDE USPN</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href="?controller=accueil&action_membre"><img src="../Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
+            <a href="?controller=accueil&action=membre"><img src="Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
         </div>
         <!-- Barre de navigation -->
         <nav>
@@ -20,22 +21,21 @@
                 <!-- Côté gauche de la barre de navigation -->
                 <ul class="menuL">
                     <li style="padding-bottom: 2.6%">
-                        <a href="?controller=accueil">Accueil</a>
+                        <a href="?controller=accueil&action=membre">Accueil</a>
                     </li>
                     <li>
                         <a>Commande</a>
                         <!-- Sous menu de commande -->
                         <ul>
-                            <li><a href="?controller=commande&action=">Nouvelle Commande</a></li>
-                            <li><a href="?controller=commande&action=">Retour Commande</a></li>
+                            <li><a href="?controller=commande">Nouvelle Commande</a></li>
                         </ul>                        
                     </li>
                     <li>
                         <a>Inventaire</a>
                         <!-- Sous menu de inventaire -->
                         <ul>
-                            <li><a href="?controller=article&action=">Stock/Réaprovisionnement</a></li>
-                            <li><a href="?controller=article&action=">Ajout d'article</a></li>
+                            <li><a href="?controller=article&action=stock">Stock</a></li>
+                            <li><a href="?controller=article&action=formulaire_ajout">Ajout d'article</a></li>
                         </ul>
                     </li>
                     <li>
@@ -47,14 +47,17 @@
                         </ul>
                     </li>
                     <li style="padding-bottom: 2.6%">
-                        <a href="?">Gestion des comptes</a>
+                        <a href="?controller=compte&action=liste_compte">Gestion des comptes</a>
+                    </li>
+                    <li style="padding-bottom: 2.6%">
+                        <a href="?">Déconnexion</a>
                     </li>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
                 <ul class="menuR">
-                    <li style="width : 20px"><a href=""><img src="../Content/Images/cloche.png"></a></li>
-                    <li style="width : 20px"><a href=""><img src="../Content/Images/icone.png"></a></li>
-                    <li style="width : 20px"><a href=""><img src="../Content/Images/drapeau" style="margin-bottom : 25%"></a></li>
+                    <li style="width : 20px"><a href="?"><img src="Content/Images/cloche.png"></a></li>
+                    <li style="width : 20px"><a href="?"><img src="Content/Images/icone.png"></a></li>
+                    <li style="width : 20px"><a href="?"><img src="Content/Images/drapeau" style="margin-bottom : 25%"></a></li>
                 </ul>
             </ul>
         </nav>
