@@ -3,12 +3,12 @@
 class Controller_accueil extends Controller {
 
     public function action_home(){
-        $data = false;
-        $this->render("accueil_client", $data);
+        $data = [];
+        $this->render("accueil_membre", $data);
     }
 
     public function action_membre(){
-        $data = false;
+        $data = [];
         $this->render("accueil_membre", $data);
     }
 
