@@ -23,6 +23,7 @@ header{
     padding: 0;
     position: sticky;
     top: 0;
+    z-index:1;
 }
 
 .container{      
@@ -147,7 +148,7 @@ header{
     padding: 20px;
 }
 
-table{
+.tab_historique{
     background-color: white;
     font-size: large;
     width: 1000px;
@@ -155,48 +156,18 @@ table{
 }
 
 @media (max-width:1020px){
-    table{
+    .tab_historique{
         width: 500px;
     }
 }
 
-table,th,td{
+.tab_historique,th,td{
     border-collapse: collapse;
     border:1px solid #cccccc;
     padding: 10px;
 }
 
 /* ------------- FIN PARTIE HISTORIQUE ------------- */
-
-/* ------------- DEBUT PARTIE HISTORIQUE ------------- */
-
-#accueil{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-table{
-    background-color: white;
-    font-size: large;
-    width: 1000px;
-    transition: 0.5s;
-}
-
-@media (max-width:1020px){
-    table{
-        width: 500px;
-    }
-}
-
-table,th,td{
-    border-collapse: collapse;
-    border:1px solid #cccccc;
-    padding: 10px;
-}
-
-/* ------------- FIN PARTIE HISTORIQUE ------------- */
-
 
 /* ------------- DEBUT PARTIE FOOTER ------------- */
 
@@ -280,49 +251,114 @@ footer{
 /* ------------- FIN PARTIE FOOTER ------------- */
 
 
+
 /* ------------- DEBUT PARTIE COMMANDE ------------- */
 
-.step-container{
+.titre{
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    font-family: 'Arial Narrow Bold';
-}
+}  
 
-.step-container .step{
-    background:var(--vert);
-    margin: 1rem;
-    padding: 2rem;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem black;
+#titre-panier{
     text-align: center;
-    flex:1 1 30rem;
 }
 
-.step-container .step img{
+.container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-image: linear-gradient(to bottom, rgba(123,234,255,0.8), var(--vert_clair)), url("../Images/accueil.jpg");
+}
+
+.produit img{
+    width: 75px;
+}
+
+.scroll{
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    border:1px solid black;
+    width: 1000px;
+    height: 400px;
+    overflow-y: scroll;
+    scrollbar-color: darkblue white;
+    scrollbar-width: thin;
+    margin-bottom: 2%;
+}
+
+.produit{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.container2{
+    margin-top: 1%;
+    background: var(--bleu);
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: black 1px solid;
+    border-radius: 3px;
+}
+
+.panier div{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+}
+
+.total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.reduc{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mode{
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+#r{
+    width: 30%;
+}
+
+#payer,#vider{
+    font-size: 120%;
+    color: white;
+    background: #041C63;
     width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    border: white solid 1px;
+    margin-bottom: 2%;
+    cursor: pointer;
 }
 
-.step-container .step h4{
-    font-size: 4rem;
-    color:var(--bleu);
-    font-family: 'Arial Narrow Bold';
+.supp,#abc,.valider{
+    cursor: pointer;
 }
 
-.step-container .step h3{
-    font-size: 2rem;
-    color: black;
-    padding:1rem 0;
-    text-align: center;
+.produit{
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
-
-.step-container .step h3 h3 p{
-    font-size: 1rem;
-    color:#666;
-}
+/*------------------------FIN PARTIE COMMANDE-------------------------*/
 
 /*-------------------- DEBUT PARTIE LOGIN -------------------- */
 
@@ -396,3 +432,133 @@ footer{
 }
 
 /*-------------------- FIN PARTIE LOGIN -------------------- */
+
+.form{
+    background-color: var(--vert_clair);
+    opacity: 0.95;padding: 20px;
+    border-radius: 30px;
+    width: 40%;
+    z-index: 0;
+}
+
+.form h1{
+    text-align: center;
+    justify-content: center;
+
+}
+
+.form form{
+    padding-left: 50px;
+    text-align: left
+}
+
+.question{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin: 2%;
+
+}
+
+/*-------------------------- DEBUT PARTIE STOCK -----------------------------*/
+
+.tab_stock img{
+    height: 100px;
+    width: 100px;
+}
+
+.tab_stock{
+    background-color: var(--vert_clair);
+    font-size: large;
+    border-radius: 20px;
+    width: 500px;
+    transition: 0.5s;
+}
+
+@media (max-width:1020px){
+    .tab_stock{
+        width: 500px;
+    }
+}
+
+.tab_stock,th,td{
+    border-collapse: collapse;
+    border:1px solid #cccccc;
+}
+
+.qte_article{
+    text-align: center;
+}
+
+.nom_article a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+/*-------------------------- FIN PARTIE STOCK -----------------------------*/
+
+/*--------------------------- DEBUT PARTIE INVENTAIRE ------------------*/
+
+.form{
+    background-color: var(--vert_clair);
+    opacity: 0.95;padding: 20px;
+    border-radius: 30px;
+    width: 40%;
+    z-index: 0;
+}
+
+.form h1{
+    text-align: center;
+    justify-content: center;
+
+}
+
+.form form{
+    margin-right: auto;
+    margin-left: 2%;
+    padding-left: 1%;
+    text-align: left;
+}
+
+
+.form label{
+    display: block;
+    width: 60%;
+    float: left;
+    font-size: larger;
+}
+
+.form label .input_form{
+    display: inline-block;
+    margin-bottom: 2%;
+}
+
+.input_form{
+    margin: 5px;
+}
+
+.submit_modif{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding-right: 1%;
+}
+
+.submit_modif input{
+    background-color: #6eb6f3;
+    color: white;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+    border: 1px solid black
+}
+
+.submit_modif input:hover{
+    background-color: #3c84c2;
+}
