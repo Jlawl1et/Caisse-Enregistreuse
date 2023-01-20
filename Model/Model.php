@@ -7,7 +7,7 @@ class Model {
 	 * Methode terminée, ne pas modifier
 	 */
 	private function __construct(){
-    	$this->bd = new PDO("pgsql:host=51.77.214.196;dbname=ubuntu", "ubuntu", "Andromeda");
+        $this->bd = new PDO('mysql:host=localhost;dbname=bde','root');
     	$this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     	$this->bd->query("SET nameS 'utf8'");
 	}
@@ -142,9 +142,8 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
-	public function getNbArticle($idArticle){
-		$requette = $this->bd->prepare("SELECT nb_article from article where id_article = :identifiant");
-		$requette->bindValue('identifiant', $idArticle);
+	public function getNbArticle(){
+		$requette = $this->bd->prepare("SELECT COUNT(*) from article");
 		$requette->execute();
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
@@ -191,20 +190,20 @@ class Model {
 	}
 
 	public function consulterHistorique($id_utilisateur){
-		$requette = $this->bd->prepare("SELECT * from historique_commande_util join utilisateur on  utilisateur.id_utilisateur = :id_utilisateur  ");
+		$requette = $this->bd->prepare("SELECT * FROM historique_commande_util WHERE id_utilisateur = :id_utilisateur ORDER BY date_achat DESC");
 		$requette->bindValue(':id_utilisateur',$id_utilisateur);
 		$requette->execute();
-		return $requette->fetchall(PDO::FETCH_ASSOC);
+		return $requette->fetchall();
 	}
 
 	public function consulterHistoriqueVentes(){
-		$requete = $this->bd->prepare("SELECT * FROM article JOIN historique_commande ON article.id_article = historique_commande.id_article ORDER BY date_achat DESC");
+		$requete = $this->bd->prepare("SELECT * FROM historique_commande_util JOIN article ON historique_commande_util.id_article=article.id_article ORDER BY date_achat DESC");
 		$requete->execute();
 		return $requete->fetchAll();
 	}
 
 	public function consulterBilan(){
-		$requete = $this->bd->prepare("SELECT * FROM article JOIN historique_commande ON article.id_article = historique_commande.id_article WHERE TO_CHAR(date_achat,'mm')=TO_CHAR(CURRENT_DATE,'mm') ORDER BY heure_achat DESC;");
+		$requete = $this->bd->prepare("SELECT * FROM historique_commande_util JOIN article ON historique_commande_util.id_article=article.id_article WHERE DATE_FORMAT(date_achat,'%m %Y')=DATE_FORMAT(CURRENT_DATE,'%m %Y') ORDER BY heure_achat DESC");
 		$requete->execute();
 		return $requete->fetchAll();
 	}
@@ -233,26 +232,6 @@ class Model {
 			echo '<p>'. " l'article numero " . $article . " n'est plus en stock " . "</p>";
 		}
 }
-
-
-	public function ajouterArticle($donnee){
-       	$req = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
-       	$marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
-        	foreach ($marks as $value) {
-            	$req->bindValue(':' . $value, $donnee[$value]);
-        	}
-        	$req->execute();
-        	return (bool) $req->rowCount();
-    	}
-
-	public function ajouterArticle2($id_article,$nom_article,$prix,$informations){
-		$requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,informations) VALUES (:id_article,:nom_article,:prix,:informations)");
-		$requette->execute(array(
-			'id_article' => $id_article,
-			'nom_article' => $nom_article,
-			'prix' => $prix,
-			'informations' => $informations));}
-
 
 	public function reduction(){
     	return null;
@@ -336,6 +315,114 @@ class Model {
 
 	public function fixerStockBas($idArticle, $minimum){
     	return null;
+	}
+
+	public function setNomArticle($identifiant, $nom){
+        $requette = $this->bd->prepare("UPDATE article SET nom_article = :nom where id_article = :identifiant");
+        $requette->execute(array(
+            'nom' => $nom ,
+            'identifiant' => $identifiant
+        ));
+
+    }
+    public function setPrix($identifiant, $prix){
+        $requette = $this->bd->prepare("UPDATE article SET prix = :prix where id_article = :identifiant");
+        $requette->execute(array(
+            'prix' => $prix ,
+            'identifiant' => $identifiant));
+    }
+    public function setCategorie($identifiant, $categorie){
+        $requette = $this->bd->prepare("UPDATE article SET categorie = :categorie where id_article = :identifiant");
+        $requette->execute(array(
+            'categorie' => $categorie ,
+            'identifiant' => $identifiant));
+
+    }
+    public function setInformations($identifiant, $info){
+        $requette = $this->bd->prepare("UPDATE article SET informations = :info where id_article = :identifiant");
+        $requette->execute(array(
+            'info' => $info ,
+            'identifiant' => $identifiant));
+    }
+    public function setNbArticle($identifiant, $nbArticle){
+        $requette = $this->bd->prepare("UPDATE article SET nb_article = :nbArticle where id_article = :identifiant");
+        $requette->execute(array(
+            'nbArticle' => $nbArticle ,
+            'identifiant' => $identifiant));
+    }
+
+	public function getSnack(){
+        $requete = $this->bd->prepare("SELECT * FROM article WHERE categorie = 'snack'");
+        $requete->execute();
+        return $requete->fetchAll();
+    }
+
+    public function getBoisson(){
+        $requete = $this->bd->prepare("SELECT * FROM article WHERE categorie = 'boisson'");
+        $requete->execute();
+        return $requete->fetchAll();
+    }
+
+    public function getSoda(){
+        $requete = $this->bd->prepare("SELECT * FROM article WHERE categorie = 'soda'");
+        $requete->execute();
+        return $requete->fetchAll();
+    }
+
+	public function getArticle(){
+		$requete =$this->bd->prepare("SELECT * FROM article;");
+		$requete->execute();
+		return $requete->fetchAll();
+	}
+
+	public function ajouterArticle($infos){
+		$requete = $this->bd->prepare("INSERT INTO article (nom_article, prix, informations, categorie,nb_article, id_article) VALUES (:nom_article, :prix, :informations, :categorie, :nb_article, :id_article)");
+		$marqueurs = ['nom_article', 'prix', 'informations', 'categorie','nb_article','id_article'];
+		foreach ($marqueurs as $val){
+			$requete->bindValue(':' .$val, $infos[$val]);
+		}
+		$requete->execute();
+		return (bool) $requete->rowCount();
+	}
+
+	public function getInformationArticle($id_article){
+		$requete = $this->bd->prepare('SELECT * FROM article WHERE id_article = :id_article');
+		$requete->bindValue(':id_article', $id_article);
+		$requete->execute();
+		return $requete->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function updateArticle($infos){
+		$requete = $this->bd->prepare('UPDATE article SET nom_article=:nom_article, prix=:prix,informations=:informations,categorie=:categorie,nb_article=:nb_article WHERE id_article=:id_article');
+		$marqueurs = ['nom_article', 'prix', 'informations', 'categorie','nb_article','id_article'];
+		foreach ($marqueurs as $val) {
+			$requete->bindValue(':' .$val, $infos[$val]);
+		}
+		$requete->execute();
+		return (bool) $requete->rowCount();
+	}
+
+	public function getComptes(){
+		$requete =$this->bd->prepare("SELECT * FROM utilisateur;");
+		$requete->execute();
+		return $requete->fetchAll();
+	}
+
+	public function getInformationCompte($id_utilisateur){
+		$requete = $this->bd->prepare('SELECT * FROM utilisateur WHERE id_utilisateur = :id_utilisateur');
+		$requete->bindValue(':id_utilisateur', $id_utilisateur);
+		$requete->execute();
+		return $requete->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function updateCompte($infos){
+		$requete = $this->bd->prepare('UPDATE utilisateur SET nom=:nom,prenom=:prenom,role=:role WHERE id_utilisateur=:id_utilisateur');
+		$marqueurs = ['nom', 'prenom', 'role','id_utilisateur'];
+		foreach ($marqueurs as $val) {
+			$requete->bindValue(':' .$val, $infos[$val]);
+		}
+		$requete->execute();
+		return (bool) $requete->rowCount();
 	}
 }
 ?>
