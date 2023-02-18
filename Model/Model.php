@@ -237,19 +237,7 @@ class Model {
     	return null;
 	}
 
-	public function ajouterCompte($identifiant, $nom, $prenom, $mail, $motDePasse, $pf = 5){
-    	$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role, point_fid ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role, :pointsFidel)");
-    	$role = 'utilisateur';
-    	$motDePasseHash = crypt($motDePasse, 'md5');
-    	$requette->execute(array(
-			'identifiant' => $identifiant ,
-			'nom' => $nom ,
-			'prenom' => $prenom ,
-			'mail' => $mail,
-			'motDePasse' => $motDePasseHash,
-			'role' => $role,
-			'pointsFidel' => $pf));
-	}
+
 
 	/**
 	 * Methode terminée, à ne pas modifier, test reussi !
@@ -376,8 +364,8 @@ class Model {
 	}
 
 	public function ajouterArticle($infos){
-		$requete = $this->bd->prepare("INSERT INTO article (nom_article, prix, informations, categorie,nb_article, id_article) VALUES (:nom_article, :prix, :informations, :categorie, :nb_article, :id_article)");
-		$marqueurs = ['nom_article', 'prix', 'informations', 'categorie','nb_article','id_article'];
+		$requete = $this->bd->prepare("INSERT INTO article (nom_article, prix, informations, categorie,nb_article, id_article, image) VALUES (:nom_article, :prix, :informations, :categorie, :nb_article, :id_article, :image)");
+		$marqueurs = ['nom_article', 'prix', 'informations', 'categorie','nb_article','id_article','image'];
 		foreach ($marqueurs as $val){
 			$requete->bindValue(':' .$val, $infos[$val]);
 		}
@@ -419,6 +407,22 @@ class Model {
 		$requete = $this->bd->prepare('UPDATE utilisateur SET nom=:nom,prenom=:prenom,role=:role WHERE id_utilisateur=:id_utilisateur');
 		$marqueurs = ['nom', 'prenom', 'role','id_utilisateur'];
 		foreach ($marqueurs as $val) {
+			$requete->bindValue(':' .$val, $infos[$val]);
+		}
+		$requete->execute();
+		return (bool) $requete->rowCount();
+	}
+
+	public function getIdentifiants(){
+		$requete =$this->bd->prepare("SELECT id_utilisateur FROM utilisateur;");
+		$requete->execute();
+		return $requete->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function ajouterCompte($infos){
+    	$requete = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp) VALUES (:id_utilisateur , :nom , :prenom, :mail, :mdp;");
+		$marqueurs = ['id_utilisateur', 'nom', 'prenom','mail','mdp'];
+		foreach ($marqueurs as $val){
 			$requete->bindValue(':' .$val, $infos[$val]);
 		}
 		$requete->execute();
