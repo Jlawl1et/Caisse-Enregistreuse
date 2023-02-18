@@ -48,6 +48,22 @@ class Controller_article extends Controller{
 
     public function action_ajouter_article(){
         $ajout = false;
+        $m = Model::getModel();
+
+        /*
+        ------------------PARTIE AJOUT D'UNE IMAGE ASSOCIEE A UN ARTICLE (version brouillon sans verifs)
+        */
+
+        if (isset($_FILES['imageFile'])) {
+            $image = $_FILES['imageFile']['name'];
+            $extensionsValide = array('.png', '.jpg', '.jpeg', '.gif', '.PNG', '.JPG', '.JPEG', '.GIF');
+            $extensionImage = strrchr($image, '.');
+            $tmpName = $_FILES['imageFile']['tmp_name'];
+            $imagePath = "Content/Images/" .$image;
+            move_uploaded_file($_FILES['imageFile']['tmp_name'], $imagePath);
+        } else {
+            $imagePath = "Content/Images/no-image.png";
+        }
 
         $infos = [];
         $noms = ['nom_article','prix','informations','categorie','nb_article'];
@@ -55,14 +71,13 @@ class Controller_article extends Controller{
             if (isset($_POST[$val])){
                 $infos[$val] = $_POST[$val];
             } else {
-                $infos[$val] = null;
+                $infos[$val] = NULL;
             }
         }
-
-        $m = Model::getModel();
-
+        
         $id = $m->getNbArticle()+1;
         $infos['id_article'] = $id;
+        $infos['image'] = $imagePath;
 
         $ajout = $m->ajouterArticle($infos);
 
