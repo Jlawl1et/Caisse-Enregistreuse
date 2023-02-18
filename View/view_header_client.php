@@ -25,6 +25,9 @@
                     <li style="padding-bottom: 2.6%">
                         <a href="?controller=historique&action=client">Mes Achats</a>
                     </li>
+                    <li id="droite" style="padding-bottom: 2.6%" >
+                        <a id="deco" href="?controller=identification&action=logout">Se déconnecter</a>
+                    </li>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
                 <ul class="menuR">

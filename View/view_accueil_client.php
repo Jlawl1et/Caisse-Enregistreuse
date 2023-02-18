@@ -5,8 +5,7 @@ require "view_header_client.php";
 </header>
 <section class="accueil" id="#accueil">
     <div class="content">
-        <span>Bienvenue</span>
-        <h3></h3>
+        <span>Bienvenue, <?= $_SESSION['prenom'] ?> </span>
     </div>
 </section>
 </header>

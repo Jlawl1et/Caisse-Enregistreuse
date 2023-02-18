@@ -24,7 +24,8 @@
                     <option value="<?= e($role); ?>">-Choisissez la catégorie-</option>
                     <option value="admin">Administrateur</option>
                     <option value="super-admin">Super-Administrateur</option>
-                    <option value="client">Client</option>
+                    <option value="utilisateur">Utilisateur</option>
+                    <option value="Mangueur de stock">Mangeur de stock</option>
                 </select>
                 <br>
 

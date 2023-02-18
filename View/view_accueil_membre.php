@@ -1,6 +1,4 @@
-<?php
-require "view_header_membre.php";
-?>
+<?php require "view_header_membre.php"; ?>
 
 </header>
 <section class="accueil" id="#accueil">
@@ -11,6 +9,4 @@ require "view_header_membre.php";
 </section>
 </header>
 
-<?php
-require "view_end.php";
-?>
+<?php require "view_end.php"; ?>

@@ -4,7 +4,7 @@
     <div class="form">
         <h1>Ajout d'un article</h1>
         <hr>
-        <form action="?controller=article&action=ajouter_article" method="post">
+        <form action="?controller=article&action=ajouter_article" method="post" enctype='multipart/form-data'>
             <br>
             <label> Nom de l'article :</label>
             <input class="input_form" type="text" name="nom_article">
@@ -30,8 +30,10 @@
             <input class="input_form" type="number" name="nb_article" min="1" max="10000">
             <br>
 
+            <input type="file" name="imageFile"><br>
+
             <div class="submit_modif">
-                <input type="submit" value="Ajouter l'article">
+                <input type="submit" value="Ajouter l'article" name="submit">
             </div>
         </form>
     </div>

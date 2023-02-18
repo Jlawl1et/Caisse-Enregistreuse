@@ -15,7 +15,7 @@
             <tr>
                 <td class="nom_article"> 
                     <a href="?controller=article&action=formulaire_modifier&id_article= <?= e($val['id_article']) ?>">
-                        <img src= "Content/Images/no-image.png" > 
+                        <img src= "<?= $val['image'] ?>" >
                         <p> <?= e($val['nom_article']) ?> </p>
                     </a>
                 </td>

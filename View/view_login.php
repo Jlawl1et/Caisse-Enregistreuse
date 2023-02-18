@@ -1,38 +1,38 @@
-<!Doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="Content/CSS/style.css">
-    <link rel="shortcut icon" href="Content/Images/Logo_bde">
-    <title>BDE USPN</title>
-</head>
-<body>
+<?php ?>
 
-<div class="container" id="container_login">
-    <div class="logo" id="logo_login">
-        <a href="?controller=accueil&action_membre">
+    <!Doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Content/CSS/style.css">
+        <link rel="shortcut icon" href="Content/Images/Logo_BDE_noir.png">
+        <title>BDE USPN</title>
+    </head>
+    <body>
+
+    <div class="container" style="background-color: var(--bleu);display: flex;justify-content: center;height: 120px;position: relative;overflow:auto;">
+        <div class="logo" id="logo_login">
             <img src="Content/Images/Logo_BDE_noir.png" alt="Logo BDE" style="height: 100px;width: 100px">
-        </a>
+        </div>
     </div>
-</div>
 
 
-<section class="accueil" id="accueil_form">
-    <div class="identification">
-        <h1 class="login_title">CONNEXION</h1>
-        <form action="" method="post" class="formulaire">
-            <label>Identifiant :</label>
-            <br>
-            <input name="identifiant" type="number" class="input_login">
-            <br>
-            <label>Mot de passe :</label>
-            <br>
-            <input name="mdp" type="password" class="input_login">
-            <br>
-            <input type="submit" value="LOGIN" class="submit_login"><br>
-            <span>Pas encore de compte ? <a href="?controller=identification&action=signin">Créer un compte</a></span>
-        </form>
-    </div>
-</section>
+    <section class="accueil" style="justify-content: center;">
+        <div style="background-color: var(--vert_clair);opacity: 0.95;padding: 20px;border-radius: 30px;width: 40%;">
+            <h1 style="text-align: center;margin-bottom: 0px;">CONNEXION</h1>
+            <form action="?controller=identification&action=login" method="post" style="padding: 50px;text-align: center;">
+                <label style="font-size: 25px;margin: 50px;">Identifiant :</label>
+                <br>
+                <input name="identifiant" type="number" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
+                <br>
+                <label style="font-size: 25px;margin: 50px;">Mot de passe :</label>
+                <br>
+                <input name="mdp" type="password" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
+                <br>
+                <input type="submit" value="LOGIN" style="padding: 8px;margin: 10px;background-color: var(--bleu);border: 0;border-radius: 20px;width: 200px;"><br>
+                <span style="font-size: 15px;">Pas encore de compte ? <a href="?controller=identification&action=signin">Créer un compte</a></span>
+            </form>
+        </div>
+    </section>
 
 <?php require_once "view_end.php" ?>

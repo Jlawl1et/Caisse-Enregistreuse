@@ -1,9 +1,9 @@
-
+<?php /*
 <!Doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="Content/CSS/style.css">
+    <link rel="stylesheet" href="../Content/CSS/style.css">
     <link rel="shortcut icon" href="Content/Images/Logo_bde">
     <title>BDE USPN</title>
 </head>
@@ -13,7 +13,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href="?controller=accueil&action=membre"><img src="Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
+            <a href="?controller=accueil&action=membre"><img src="../Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
         </div>
         <!-- Barre de navigation -->
         <nav>
@@ -28,7 +28,7 @@
                         <!-- Sous menu de commande -->
                         <ul>
                             <li><a href="?controller=commande">Nouvelle Commande</a></li>
-                        </ul>                        
+                        </ul>
                     </li>
                     <li>
                         <a>Inventaire</a>
@@ -49,19 +49,40 @@
                     <li style="padding-bottom: 2.6%">
                         <a href="?controller=compte&action=liste_compte">Gestion des comptes</a>
                     </li>
-                    <?php //if( isset($_SESSION['connecte']) && $_SESSION['connecte'] !== null ) : ?>
                     <li id="droite" style="padding-bottom: 2.6%" >
                         <a id="deco" href="?controller=identification&action=logout">Se déconnecter</a>
                     </li>
-                    <?php //endif;?>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
                 <ul class="menuR">
-                    <li style="width : 20px"><a href="?"><img src="Content/Images/cloche.png"></a></li>
-                    <li style="width : 20px"><a href="?"><img src="Content/Images/icone.png"></a></li>
-                    <li style="width : 20px"><a href="?"><img src="Content/Images/drapeau" style="margin-bottom : 25%"></a></li>
+                    <li style="width : 20px"><a href="?"><img src="../Content/Images/cloche.png"></a></li>
+                    <li style="width : 20px"><a href="?"><img src="../Content/Images/icone.png"></a></li>
+                    <li style="width : 20px"><a href="?"><img src="../Content/Images/drapeau" style="margin-bottom : 25%"></a></li>
                 </ul>
             </ul>
         </nav>
     </div>
 </header>
+*/ ?>
+
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Content/style2.css">
+    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
+    <title>BDE USPN</title>
+</head>
+<body>
+
+<header>
+    <a href="?"><img class="logo" src="../Content/Images/Logo_BDE_noir.png" alt="Logo"></a>
+    <ul class="navbar">
+        <li><a href="?">Accueil</a></li>
+        <li><a href="?">Commande</a></li>
+        <li><a href="?">Inventaire</a></li>
+        <li><a href="?">Comptabilité</a></li>
+        <li><a href="?">Déconnexion</a></li>
+    </ul>
+</header>
+
