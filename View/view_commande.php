@@ -14,7 +14,7 @@
         <?php foreach($data as $val) : ?>
 
             <div class="produit">
-                <img src="Content/Images/no-image.png" >
+                <img src= "<?= $val['image'] ?>" >
                 <p class="nom_prod"> <?= e($val['nom_article']); ?> </p>
                 <p class="prix_prod"><strong> <?= e($val['prix']) ?>€ </strong></p>
 

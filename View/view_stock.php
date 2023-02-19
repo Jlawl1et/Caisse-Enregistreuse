@@ -12,7 +12,7 @@
             </tr>
 
             <?php foreach($data as $val) : ?>
-            <tr>
+            <tr <?php if ( $val['nb_article'] == 0 ) { echo 'style="background-color: #ff2121"'; } ?>  >
                 <td class="nom_article"> 
                     <a href="?controller=article&action=formulaire_modifier&id_article= <?= e($val['id_article']) ?>">
                         <img src= "<?= $val['image'] ?>" >

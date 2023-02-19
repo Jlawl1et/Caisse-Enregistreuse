@@ -18,6 +18,7 @@
 <section class="accueil" style="justify-content: center;">
     <div style="background-color: var(--vert_clair);opacity: 0.95;padding: 20px;border-radius: 30px;width: 40%;">
         <h1 style="text-align: center;margin-bottom: 0px;">CREATION DU COMPTE</h1>
+        <h3 style="text-align: center;margin-bottom:0;color:#ff0000"> <?= e($data["message"]) ?> </h3>
         <form action="?controller=identification&action=signin" method="post" style="padding: 50px;text-align: center;">
             <label style="font-size: 25px;margin: 50px;">Identifiant :</label>
             <br>
@@ -39,7 +40,7 @@
             <br>
             <input name="mdp" type="password" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
             <br>
-            <input type="submit" value="CREER" style="padding: 8px;margin: 10px;background-color: var(--bleu);border: 0;border-radius: 20px;width: 200px;"><br>
+            <input type="submit" value="CREER" name="submit" style="padding: 8px;margin: 10px;background-color: var(--bleu);border: 0;border-radius: 20px;width: 200px;"><br>
 
             <span>Déja un compte ? <a href="?controller=identification&action=login">Se connecter</a></span>
         </form>

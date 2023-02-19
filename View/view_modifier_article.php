@@ -32,7 +32,7 @@
                     <br>
 
                     <label>Nouveau Stock :</label>
-                    <input class="input_form" type="number" name="nb_article" min="1" max="10000" value="<?= e($nb_article) ?>">
+                    <input class="input_form" type="number" name="nb_article" min="0" max="10000" value="<?= e($nb_article) ?>">
                     <br>
 
                     <div class="submit_modif">

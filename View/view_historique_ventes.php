@@ -5,22 +5,21 @@
             <table class="tab_historique">
                 <tr>
                     <th>
-                        <a href="?controller=historique&action=bilan&tri=id_utilisateur"><img src="Content/Images/tri.png" style="float: left">Identifiant</a>
+                        <a href="?controller=historique&action=ventes&tri=id_utilisateur"><img src="Content/Images/tri.png" style="float: left">Identifiant</a>
                     </th>
                     <th>
-                        <a href="?controller=historique&action=bilan&tri=nom_article"><img src="Content/Images/tri.png" style="float: left">Article</a>
+                        <a href="?controller=historique&action=ventes&tri=nom_article"><img src="Content/Images/tri.png" style="float: left">Article</a>
+                    </th>
+                    <th><a href="?controller=historique&action=ventes&tri=date_achat"><img src="Content/Images/tri.png" style="float: left">Date d'achat</a>
                     </th>
                     <th>
-                        <a href="?controller=historique&action=bilan&tri=date_achat"><img src="Content/Images/tri.png" style="float: left">Date d'achat</a>
+                        <a href="?controller=historique&action=ventes&tri=heure_achat"><img src="Content/Images/tri.png" style="float: left">Heure d'achat</a>
                     </th>
                     <th>
-                        <a href="?controller=historique&action=bilan&tri=heure_achat"><img src="Content/Images/tri.png" style="float: left">Heure d'achat</a>
+                        <a href="?controller=historique&action=ventes&tri=moyen_paiement"><img src="Content/Images/tri.png" style="float: left">Moyen de paiement</a>
                     </th>
                     <th>
-                        <a href="?controller=historique&action=bilan&tri=moyen_paiement"><img src="Content/Images/tri.png" style="float: left">Moyen de paiement</a>
-                    </th>
-                    <th>
-                        <a href="?controller=historique&action=bilan&tri=prix"><img src="Content/Images/tri.png" style="float: left">Montant</a>
+                        <a href="?controller=historique&action=ventes&tri=prix"><img src="Content/Images/tri.png" style="float: left">Montant</a>
                     </th>
                 </tr>
 

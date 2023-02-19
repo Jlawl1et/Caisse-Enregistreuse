@@ -1,16 +1,11 @@
-<?php
-require "view_header_client.php";
-?>
+<?php require "view_header_client.php"; ?>
 
 </header>
 <section class="accueil" id="#accueil">
     <div class="content">
-        <span>Bienvenue, <?= $_SESSION['prenom'] ?> </span>
+        <span>Bienvenue</span>
     </div>
 </section>
 </header>
 
-
-<?php
-require "view_end.php";
-?>
+<?php require "view_end.php"; ?>

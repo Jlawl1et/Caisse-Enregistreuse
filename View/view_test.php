@@ -1,88 +1,38 @@
-<?php /*
-<!Doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../Content/CSS/style.css">
-    <link rel="shortcut icon" href="Content/Images/Logo_bde">
-    <title>BDE USPN</title>
-</head>
-<body>
+<?php ?>
 
-<header>
-    <div class="container">
-        <!-- Logo -->
-        <div class="logo">
-            <a href="?controller=accueil&action=membre"><img src="../Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
+    <!Doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Content/CSS/style.css">
+        <link rel="shortcut icon" href="Content/Images/Logo_BDE_noir.png">
+        <title>BDE USPN</title>
+    </head>
+    <body>
+
+    <div class="container" style="background-color: var(--bleu);display: flex;justify-content: center;height: 120px;position: relative;overflow:auto;">
+        <div class="logo" id="logo_login">
+            <img src="Content/Images/Logo_BDE_noir.png" alt="Logo BDE" style="height: 100px;width: 100px">
         </div>
-        <!-- Barre de navigation -->
-        <nav>
-            <ul class="navigation">
-                <!-- Côté gauche de la barre de navigation -->
-                <ul class="menuL">
-                    <li style="padding-bottom: 2.6%">
-                        <a href="?controller=accueil&action=membre">Accueil</a>
-                    </li>
-                    <li>
-                        <a>Commande</a>
-                        <!-- Sous menu de commande -->
-                        <ul>
-                            <li><a href="?controller=commande">Nouvelle Commande</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a>Inventaire</a>
-                        <!-- Sous menu de inventaire -->
-                        <ul>
-                            <li><a href="?controller=article&action=stock">Stock</a></li>
-                            <li><a href="?controller=article&action=formulaire_ajout">Ajout d'article</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a>Comptabilité</a>
-                        <!-- Sous menu de Comptabilité -->
-                        <ul>
-                            <li><a href="?controller=historique&action=ventes">Historique des ventes</a></li>
-                            <li><a href="?controller=historique&action=bilan">Bilan</a></li>
-                        </ul>
-                    </li>
-                    <li style="padding-bottom: 2.6%">
-                        <a href="?controller=compte&action=liste_compte">Gestion des comptes</a>
-                    </li>
-                    <li id="droite" style="padding-bottom: 2.6%" >
-                        <a id="deco" href="?controller=identification&action=logout">Se déconnecter</a>
-                    </li>
-                </ul>
-                <!-- Côté droit de la barre de navigation -->
-                <ul class="menuR">
-                    <li style="width : 20px"><a href="?"><img src="../Content/Images/cloche.png"></a></li>
-                    <li style="width : 20px"><a href="?"><img src="../Content/Images/icone.png"></a></li>
-                    <li style="width : 20px"><a href="?"><img src="../Content/Images/drapeau" style="margin-bottom : 25%"></a></li>
-                </ul>
-            </ul>
-        </nav>
     </div>
-</header>
-*/ ?>
 
-<!Doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../Content/style2.css">
-    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
-    <title>BDE USPN</title>
-</head>
-<body>
 
-<header>
-    <a href="?"><img class="logo" src="../Content/Images/Logo_BDE_noir.png" alt="Logo"></a>
-    <ul class="navbar">
-        <li><a href="?">Accueil</a></li>
-        <li><a href="?">Commande</a></li>
-        <li><a href="?">Inventaire</a></li>
-        <li><a href="?">Comptabilité</a></li>
-        <li><a href="?">Déconnexion</a></li>
-    </ul>
-</header>
+    <section class="accueil" style="justify-content: center;">
+        <div style="background-color: var(--vert_clair);opacity: 0.95;padding: 20px;border-radius: 30px;width: 40%;">
+            <h1 style="text-align: center;margin-bottom: 0px;">CONNEXION</h1>
+            <form action="?controller=identification&action=login" method="post" style="padding: 50px;text-align: center;">
+                <label style="font-size: 25px;margin: 50px;">Identifiant :</label>
+                <br>
+                <input name="identifiant" type="number" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
+                <br>
+                <label style="font-size: 25px;margin: 50px;">Mot de passe :</label>
+                <br>
+                <input name="mdp" type="password" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
+                <br>
+                <input type="submit" value="LOGIN" style="padding: 8px;margin: 10px;background-color: var(--bleu);border: 0;border-radius: 20px;width: 200px;"><br>
+                <span style="font-size: 15px;">Pas encore de compte ? <a href="?controller=identification&action=signin">Créer un compte</a></span>
+            </form>
+        </div>
+    </section>
 
+<?php require_once "view_end.php" ?>

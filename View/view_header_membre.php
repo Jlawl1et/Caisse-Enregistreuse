@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="Content/CSS/style.css">
+    <link rel="stylesheet" href="Content/CSS/style">
     <link rel="shortcut icon" href="Content/Images/Logo_bde">
     <title>BDE USPN</title>
 </head>
@@ -46,10 +46,11 @@
                             <li><a href="?controller=historique&action=bilan">Bilan</a></li>
                         </ul>
                     </li>
-                    <li style="padding-bottom: 2.6%">
-                        <a href="?controller=compte&action=liste_compte">Gestion des comptes</a>
-                    </li>
-                    <?php //if( isset($_SESSION['connecte']) && $_SESSION['connecte'] !== null ) : ?>
+                    <?php
+                    if ($_SESSION['role'] == "super-administrateur"){
+                        echo '<li style="padding-bottom: 2.6%"><a href="?controller=compte&action=liste_compte">Gestion des comptes</a></li>';
+                    }
+                    ?>
                     <li id="droite" style="padding-bottom: 2.6%" >
                         <a id="deco" href="?controller=identification&action=logout">Se déconnecter</a>
                     </li>
@@ -58,7 +59,7 @@
                 <!-- Côté droit de la barre de navigation -->
                 <ul class="menuR">
                     <li style="width : 20px"><a href="?"><img src="Content/Images/cloche.png"></a></li>
-                    <li style="width : 20px"><a href="?"><img src="Content/Images/icone.png"></a></li>
+                    <li style="width : 20px"><a href="?controller=compte"><img src="Content/Images/icone.png"></a></li>
                     <li style="width : 20px"><a href="?"><img src="Content/Images/drapeau" style="margin-bottom : 25%"></a></li>
                 </ul>
             </ul>

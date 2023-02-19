@@ -23,13 +23,14 @@
             <form action="?controller=identification&action=login" method="post" style="padding: 50px;text-align: center;">
                 <label style="font-size: 25px;margin: 50px;">Identifiant :</label>
                 <br>
-                <input name="identifiant" type="number" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
+                <input name="id_utilisateur" type="number" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
                 <br>
                 <label style="font-size: 25px;margin: 50px;">Mot de passe :</label>
                 <br>
                 <input name="mdp" type="password" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
+                <h4 style="color: red;margin: 0;" > <?= e($data["message"]) ?> </h4>
                 <br>
-                <input type="submit" value="LOGIN" style="padding: 8px;margin: 10px;background-color: var(--bleu);border: 0;border-radius: 20px;width: 200px;"><br>
+                <input name="submit" type="submit" value="LOGIN" style="padding: 8px;margin: 10px;background-color: var(--bleu);border: 0;border-radius: 20px;width: 200px;"><br>
                 <span style="font-size: 15px;">Pas encore de compte ? <a href="?controller=identification&action=signin">Créer un compte</a></span>
             </form>
         </div>
