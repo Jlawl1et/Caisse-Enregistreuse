@@ -2,14 +2,9 @@
 
 class Controller_compte extends Controller{
 
-    public function action_connexion(){
-        require_once "Model/Model.php";
-        $m = Model::getModel();
-        $data = false;
-        $this->render("connexion", $data);
-        if (isset($_POST["identifiant"]) and isset($_POST["mdp"]))
-            if ($m->connexion($_POST["identifiant"], $_POST["mdp"]))
-                $this->render("home", $data);
+    public function action_compte() {
+        $data = [];
+        $this->render("compte", $data);
     }
 
     public function action_liste_compte(){
@@ -52,8 +47,7 @@ class Controller_compte extends Controller{
         $this->render("message",$data);
     }
 
-    public function action_default()
-    {
-        $this->action_connexion();
+    public function action_default() {
+        $this->action_compte();
     }
 }

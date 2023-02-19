@@ -74,7 +74,7 @@ class Controller_article extends Controller{
                 $infos[$val] = NULL;
             }
         }
-        
+
         $id = $m->getNbArticle()+1;
         $infos['id_article'] = $id;
         $infos['image'] = $imagePath;

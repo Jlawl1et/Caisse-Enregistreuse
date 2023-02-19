@@ -4,36 +4,41 @@ class Controller_historique extends Controller{
 
     public function action_client(){
         $m = Model::getModel();
-        $data = $m->consulterHistorique(/* $_SESSION['id'] */);
+
+        if (isset($_GET['tri'])) {
+            $data = $m->historiqueClientFiltre($_GET['tri']);
+        } else {
+            $data = $m->consulterHistorique($_SESSION['id_utilisateur']);
+        }
+
         $this->render("historique_client", $data);
     }
 
     public function action_ventes(){
         $m = Model::getModel();
-        $data = $m->consulterHistoriqueVentes();
-        $this->render("bilan", $data);
+
+        if (isset($_GET['tri'])) {
+            $data = $m->historiqueFiltre($_GET['tri']);
+        } else {
+            $data = $m->consulterHistoriqueVentes();
+        }
+
+        $this->render("historique_ventes", $data);
     }
 
-    public function action_bilan()
-    {
+    public function action_bilan() {
         $m = Model::getModel();
-        $data = $m->consulterBilan();
+        if (isset($_GET['tri'])) {
+            $data = $m->bilanFiltre($_GET['tri']);
+        } else {
+            $data = $m->consulterBilan();
+        }
+
         $this->render("bilan", $data);
     }
 
     public function action_default(){
         $this->action_bilan();
-        /* 
-        $m = Model::getModel();
-        if ($m->getRole($_SESSION['id']) = "administrateur" ){
-            $this->action_ventes();
-        } else {
-            $this->action_client();
-        }
-
-        Je sais pas si ça marchera comme ça tu pourras regarder stp
-
-        */
     }
 }
 

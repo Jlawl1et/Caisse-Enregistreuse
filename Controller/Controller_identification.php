@@ -2,82 +2,110 @@
 require_once "Model/Model.php";
 class Controller_identification extends Controller{
 
-    public function action_login()
-    {
+    public function action_login(){
+
         $m = Model::getModel();
         $data = [];
-        if (isset($_POST['identifiant']) && isset($_POST['mdp'])){
-            $mdp = $m->getMotDePasse($_POST["identifiant"]);
-            $identifiant = $_POST["identifiant"];
-            if(password_verify($_POST["mdp"], $mdp)){
-                $_SESSION["connecte"]= true;
-                $_SESSION["identifiant"] = $identifiant;
-                $_SESSION["nom"]=$m->getNom($identifiant);
-                $_SESSION["prenom"]=$m->getPrenom($identifiant);
-                $_SESSION["mail"]=$m->getMail($identifiant);
-                $_SESSION["role"]=$m->getRole($identifiant);
-                $_SESSION["date_creation"] = $m->getDateCreation($identifiant);
-                $_SESSION["date_connexion"] = $m->getDateConnexion($identifiant);
-                $_SESSION["points"] = $m->getPointsFid($identifiant);
-                if($m->getRole($identifiant) == 'utilisateur'){
-                    $this->render("accueil_client", $data);
-                }elseif($m->getRole($identifiant) == 'administrateur'){
-                    $this->render("accueil_membre", $data);
-                }else{
-                    $_SESSION["Message"] = "Vous ne possedez pas de role, veuillez vous presenter au BDE pour contacter un administrateur";
+
+        if (isset($_POST['submit'])) {
+
+            if ($_POST["id_utilisateur"] != "" && $_POST["mdp"] != "") {
+                $liste = $m->getIdentifiantsLogin();
+
+                if( in_array($_POST['id_utilisateur'] ,array_keys($liste) ) ) {
+                    $utilisateur = $m->getInformationCompte($_POST['id_utilisateur']);
+
+                    if ( $utilisateur['mdp'] == md5($_POST['mdp']) ) {
+                    // Remplissage de la session
+                        $_SESSION["connecte"] = true;
+                        $_SESSION['id_utilisateur'] = $utilisateur["id_utilisateur"];
+                        $_SESSION["nom"] = $utilisateur["nom"];
+                        $_SESSION["prenom"] = $utilisateur["prenom"];
+                        $_SESSION["mail"] = $utilisateur["mail"];
+                        $_SESSION["role"] = $utilisateur["role"];
+                        $_SESSION["date_creation"] = $utilisateur["date_creation"];
+                        $_SESSION["date_connexion"] = $m->dateConnexion($_SESSION["id_utilisateur"]);
+                        $_SESSION["point_fid"] = $utilisateur["point_fid"];
+                    //Rôles
+                        if ( $_SESSION['role'] == "administrateur" or $_SESSION['role'] == "super-administrateur") {
+                            $this->render("accueil_membre",$data);
+                        } else {
+                            $this->render("accueil_client", $data);
+                        }
+
+                    } else {
+                        $data = ["message"=>"Le mot de passe est incorrect"];
+                        $this->render("login", $data);
+                    }
+                } else {
+                    $data = ["message"=>"Le compte n'existe pas"];
+                    $this->render("login", $data);
                 }
+
+            } else {
+                $data = ["message"=>"Veuillez renseigner les champs"];
+                $this->render("login",$data);
+
             }
-        }
-        elseif (isset($_SESSION["connecte"]) && $_SESSION["connecte"]){
-            $identifiant = $_SESSION["identifiant"];
-            if($m->getRole($identifiant) == 'utilisateur'){
-                $this->render("accueil_client", $data);
-            }elseif($m->getRole($identifiant) == 'administrateur') {
-                $this->render("accueil_membre", $data);
-            }
-        }
-        else {
+
+        } else {
+            $data = ["message"=>""];
             $this->render("login", $data);
         }
+
     }
 
     public function action_signin(){
+
         $m = Model::getModel();
-        $data = [];
-        if (isset($_POST["identifiant"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["mail"]) && isset($_POST["mdp"])){
-            $m->ajouterCompte($_POST["identifiant"], $_POST["nom"], $_POST["prenom"], $_POST["mail"], $_POST["mdp"]);
-            $identifiant = $_POST["identifiant"];
-            $_SESSION["connecte"]= true;
-            $_SESSION["identifiant"] = $identifiant;
-            $_SESSION["nom"]=$m->getNom($identifiant);
-            $_SESSION["prenom"]=$m->getPrenom($identifiant);
-            $_SESSION["mail"]=$m->getMail($identifiant);
-            $_SESSION["role"]=$m->getRole($identifiant);
-            $_SESSION["date_creation"] = $m->getDateCreation($identifiant);
-            $_SESSION["date_connexion"] = $m->getDateConnexion($identifiant);
-            $_SESSION["points"] = $m->getPointsFid($identifiant);
-            //ajouter la date de création
-            $this->render("accueil_client", $data);
-        }
-        elseif (isset($_SESSION["connecte"]) && $_SESSION["connecte"]){
-            $this->render("accueil_client" , $data);
-        }
-        else {
+
+        if ( isset($_POST['submit']) ){
+
+            if ( $_POST['id_utilisateur'] != "" && $_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['mail'] != "" && $_POST['mdp'] != "" ){
+                $liste = $m->getListeIdentifiants();
+
+                foreach ($liste as $value){
+                    if ($value["id_utilisateur"] == $_POST['id_utilisateur']){
+                        $data = ["message"=>"L'identifiant possède déjà un compte"];
+                        $this->render("signin", $data);
+                    }
+                }
+
+                $infos = [];
+                $attributs = ['id_utilisateur','nom','prenom','mail'];
+                foreach ($attributs as $val){
+                    $infos[$val] = $_POST[$val];
+                }
+                $infos['mdp'] = md5($_POST['mdp']);
+                $m->inscription($infos);
+                $data = ["message"=>"Votre compte a bien été crée, vous pouvez vous connecter"];
+                $this->render("login", $data);
+
+            } else {
+                $data = ["message"=>"Veuillez remplir tous les champs du formulaire"];
+                $this->render("signin", $data);
+            }
+
+        } else {
+            $data = ["message"=>""];
             $this->render("signin", $data);
         }
 
-        if( isset($_GET['logout']) && $_GET['logout'] == 1 ) {
-            session_destroy();
-        }
     }
 
-    public function action_compte(){
-        $this->render("mon_compte", $data=false);
+
+
+    public function action_logout(){
+        session_destroy();
+        $data = ["message"=>""];
+        $this->render("login", $data);
     }
 
     public function action_default()
     {
         $this->action_login();
     }
+
+
 
 } ?>
