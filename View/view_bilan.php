@@ -2,7 +2,41 @@
 
     <section class="accueil" id="accueil">
         <div class="historique">
-            <table class="tab_historique">
+            <table class="tab_historique" style="overflow: scroll;height: 400px">
+                <td colspan="6" style="text-align: center">
+                    <strong>Total :
+                        <?php
+                        $total = 0;
+                        foreach ($data as $val) {
+                            $total += $val['montant'];
+                        }
+                        echo $total;
+                        ?> €
+                    </strong>
+                    <strong> sur
+                        <?php
+                        $total = 0;
+                        foreach ($data as $val) {
+                            $total += $val['quantite'];
+                        }
+                        echo $total;
+                        ?> articles vendus (
+                    </strong>
+                    <strong>
+                        <?php
+                        $espece = 0;
+                        $cb = 0;
+                        foreach ($data as $val){
+                            if($val['moyen_paiement'] == "Espece") {
+                                $espece += 1;
+                            } else {
+                                $cb += 1;
+                            }
+                        }
+                        echo $espece ." en espèces et " .$cb ." par carte bleue )";
+                        ?>
+                    </strong>
+                </td>
                 <tr>
                     <th>
                         <a href="?controller=historique&action=bilan&tri=id_utilisateur"><img src="Content/Images/tri.png" style="float: left">Identifiant</a>
@@ -28,11 +62,11 @@
                 <?php foreach ($data as $valeur) : ?>
                     <tr>
                         <td> <?= e($valeur['id_utilisateur']) ?> </td>
-                        <td> <?= e($valeur['nom_article']) ?> </td>
+                        <td> <?= e($valeur['nom_article']) ." (x" .e($valeur['quantite']) .")"; ?> </td>
                         <td> <?= e($valeur['date_achat']) ?> </td>
                         <td> <?= e($valeur['heure_achat']) ?> </td>
                         <td> <?= e($valeur['moyen_paiement']) ?> </td>
-                        <td> <?= e($valeur['prix']) ?> </td>
+                        <td> <?= e($valeur['montant']) ."€"?> </td>
                     </tr>
                 <?php endforeach ?>
 

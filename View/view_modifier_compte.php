@@ -3,7 +3,7 @@
     <section class="accueil" style="justify-content: center;">
         <div class="form">
 
-            <h1> <?= e($nom) .' ' .e($prenom); ?></h1>
+            <h1> <a href="?controller=compte&action=liste_compte"><img src="Content/Images/fleche.png" style="float: left"></a> <?= e($nom) .' ' .e($prenom); ?></h1>
             <hr>
             <form action="?controller=compte&action=modifier_compte" method="post">
                 <br>

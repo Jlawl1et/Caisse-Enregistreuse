@@ -2,9 +2,11 @@
 
 <section class="accueil" style="justify-content: center">
     <div class="form">
+
         <h1>Ajout d'un article</h1>
         <hr>
         <form action="?controller=article&action=ajouter_article" method="post" enctype='multipart/form-data'>
+
             <br>
             <label> Nom de l'article :</label>
             <input class="input_form" type="text" name="nom_article">

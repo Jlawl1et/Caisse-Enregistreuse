@@ -93,7 +93,18 @@ class Controller_identification extends Controller{
 
     }
 
+    public function action_supprimer(){
+        if (isset($_POST['confirmation']) && $_POST['confirmation']=="Oui") {
+            $m = Model::getModel();
+            $m->supprimerCompte();
+            echo "<script>alert('Votre compte a été supprimé');</script>";
+            $this->action_logout();
+        } else {
+            $data = [];
+            $this->render("compte",$data);
+        }
 
+    }
 
     public function action_logout(){
         session_destroy();

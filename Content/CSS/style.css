@@ -160,9 +160,9 @@ header{
     }
 }
 
-.tab_historique,th,td{
+.tab_historique,th,td {
     border-collapse: collapse;
-    border:1px solid #cccccc;
+    border: 1px solid #cccccc;
     padding: 10px;
 }
 
@@ -477,7 +477,9 @@ footer{
     font-size: large;
     border-radius: 20px;
     width: 500px;
+    height: 700px;
     transition: 0.5s;
+    overflow-y: scroll;
 }
 
 @media (max-width:1020px){
@@ -569,15 +571,26 @@ footer{
 
 .compte{
     background-color: var(--vert_clair);
+    padding: 50px;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.headerCompte{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
-    border-radius: 10px;
+}
+
+.headerCompte h1{
+    color: var(--bleu_fonce);
+    font-size: 30px;
 }
 
 .photoDeProfil{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 100%;
 }
+
+/*--------------------*/

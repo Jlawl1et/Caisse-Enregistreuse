@@ -5,7 +5,7 @@ require_once "Controller/Controller.php";
 
 session_start();
 $controllers = ["accueil", "article", "commande", "compte", "historique", "identification", "inventaire"];
-$controller_default = "identification";
+$controller_default = "accueil";
 
 if (isset($_GET["controller"]) and in_array($_GET["controller"], $controllers))
     $nom_controller = $_GET["controller"];

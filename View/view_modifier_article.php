@@ -3,7 +3,7 @@
     <section class="accueil" style="justify-content: center;">
         <div class="form">
 
-            <h1> Modifier l'article : <?= e($nom_article) ?></h1>
+            <h1> <a href="?controller=article"><img src="Content/Images/fleche.png" style="float: left"></a> Modifier l'article : <?= e($nom_article) ?></h1>
             <hr>
                 <form action="?controller=article&action=modifier_article" method="post">
                     <br>

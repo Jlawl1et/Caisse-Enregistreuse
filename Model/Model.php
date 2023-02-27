@@ -91,7 +91,7 @@ class Model {
 	}
 
 	public function getArticle(){
-		$requete =$this->bd->prepare("SELECT * FROM article;");
+		$requete =$this->bd->prepare("SELECT * FROM article ORDER BY categorie;");
 		$requete->execute();
 		return $requete->fetchAll();
 	}
@@ -103,6 +103,19 @@ class Model {
 			$requete->bindValue(':' .$val, $infos[$val]);
 		}
 		$requete->execute();
+		return (bool) $requete->rowCount();
+	}
+
+	public function commande($infos) {
+		$requete = $this->bd->prepare("INSERT INTO historique_commande_util (id_article, id_utilisateur,nom_article, date_achat, heure_achat, moyen_paiement, quantite,montant) VALUES (:id_article, :id_utilisateur, :nom_article, CURRENT_DATE, CURRENT_TIME, :moyen_paiement, :quantite,:prix)");
+		$requete2 = $this->bd->prepare("UPDATE article SET nb_article = nb_article - " .$infos['quantite'] ." WHERE id_article = " .$infos['id_article']);
+		$marqueurs = ['id_article','id_utilisateur','nom_article','moyen_paiement','quantite','prix'];
+		foreach ($marqueurs as $val) {
+			$requete->bindValue(':' .$val, $infos[$val]);
+		}
+
+		$requete->execute();
+		$requete2->execute();
 		return (bool) $requete->rowCount();
 	}
 
@@ -122,6 +135,13 @@ class Model {
 		$requete->execute();
 		return (bool) $requete->rowCount();
 	}
+
+	public function nbArticle(){
+		$requete =$this->bd->prepare("SELECT COUNT(*) FROM article");
+		$requete->execute();
+		return $requete->fetch(PDO::FETCH_ASSOC);
+	}
+
 
 	public function getComptes(){
 		$requete =$this->bd->prepare("SELECT * FROM utilisateur ORDER BY id_utilisateur;");
@@ -177,6 +197,13 @@ class Model {
 		$requete2->execute();
 		return $requete->fetch(PDO::FETCH_ASSOC);
 	}
+
+	public function supprimerCompte(){
+		$requete = $this->bd->prepare("DELETE FROM utilisateur WHERE id_utilisateur=" .$_SESSION['id_utilisateur']);
+		$requete->execute();
+		return (bool) $requete->rowCount();
+	}
+
 
 }
 ?>
